@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Akka.Actor;
 using Akka.DI.Core;
 using Akka.DI.Extensions.DependencyInjection;
+using AkkaGithubConsole.Models;
 using AkkaGithubConsole.Models.External;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -14,6 +15,7 @@ namespace AkkaGithubConsole
         {
             var serviceCollection = new ServiceCollection();
             serviceCollection.AddSingleton<GithubActor>();
+            serviceCollection.AddSingleton<IHttpWrapper, HttpWrapper>();
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
             using var actorSystem = ActorSystem.Create("gh-actor-system");

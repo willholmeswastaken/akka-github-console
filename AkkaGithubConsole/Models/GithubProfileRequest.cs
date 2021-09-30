@@ -1,4 +1,4 @@
-﻿namespace AkkaGithubConsole
+﻿namespace AkkaGithubConsole.Models
 {
     public class GithubProfileRequest : GithubRequest
     {
